@@ -1,13 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author abtme
- */
 public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
 
     /**
@@ -16,6 +8,8 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
     public PertambahanDuaAngkaFrame() {
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -101,12 +95,27 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         jPanel3.setLayout(new java.awt.GridLayout());
 
         btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnHapus);
 
         btnTambah.setText("Tambah");
+        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnTambah);
 
         btnKeluar.setText("Keluar");
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeluarActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnKeluar);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -158,6 +167,32 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        try {
+            int angka1 = Integer.parseInt(txtAngkaPertama.getText());
+            int angka2 = Integer.parseInt(txtAngkaKedua.getText());
+
+            // Hitung hasil penjumlahan
+            int hasil = angka1 + angka2;
+
+            // Tampilkan hasil
+            JOptionPane.showMessageDialog(null, "Hasil penjumlahan: " + hasil, "Hasil", JOptionPane.INFORMATION_MESSAGE);
+        } catch (NumberFormatException e) {
+            // Menampilkan pesan kesalahan jika input bukan angka
+            JOptionPane.showMessageDialog(null, "Input tidak valid! Harap masukkan angka yang benar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnTambahActionPerformed
+
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnKeluarActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        txtAngkaPertama.setText("");
+        txtAngkaKedua.setText("");
+        txtAngkaPertama.requestFocus();
+    }//GEN-LAST:event_btnHapusActionPerformed
 
     /**
      * @param args the command line arguments
