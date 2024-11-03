@@ -10,6 +10,9 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
     public PertambahanDuaAngkaFrame() {
         initComponents();
         setupListeners();
+        
+        //Memposisikan jframe di tengah layar
+        setLocationRelativeTo(null);
     }
     
     private void setupListeners() {
@@ -53,6 +56,7 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         btnKeluar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Aplikasi Pertambahan Dua Angka");
 
         jPanel1.setBackground(new java.awt.Color(212, 178, 168));
 
@@ -62,6 +66,12 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(212, 178, 168));
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        txtAngkaPertama.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtAngkaPertamaFocusGained(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Roboto Lt", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,7 +121,7 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         );
 
         jPanel3.setBackground(new java.awt.Color(212, 178, 168));
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         btnHapus.setText("Hapus");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
@@ -212,6 +222,11 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         txtAngkaKedua.setText("");
         txtAngkaPertama.requestFocus();
     }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void txtAngkaPertamaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAngkaPertamaFocusGained
+        // TODO add your handling code here:
+        txtAngkaPertama.setText("");
+    }//GEN-LAST:event_txtAngkaPertamaFocusGained
 
     /**
      * @param args the command line arguments
