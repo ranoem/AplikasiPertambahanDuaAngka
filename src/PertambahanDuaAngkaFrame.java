@@ -78,6 +78,12 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("+");
 
+        txtAngkaKedua.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtAngkaKeduaFocusGained(evt);
+            }
+        });
+
         jLabel3.setFont(new java.awt.Font("Roboto Lt", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -206,7 +212,7 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
             int hasil = angka1 + angka2;
 
             // Tampilkan hasil
-            JOptionPane.showMessageDialog(null, "Hasil penjumlahan: " + hasil, "Hasil", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Hasil Pertambahan: " + hasil, "Hasil", JOptionPane.INFORMATION_MESSAGE);
         } catch (NumberFormatException e) {
             // Menampilkan pesan kesalahan jika input bukan angka
             JOptionPane.showMessageDialog(null, "Input tidak valid! Harap masukkan angka yang benar.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -224,9 +230,12 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void txtAngkaPertamaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAngkaPertamaFocusGained
-        // TODO add your handling code here:
         txtAngkaPertama.setText("");
     }//GEN-LAST:event_txtAngkaPertamaFocusGained
+
+    private void txtAngkaKeduaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAngkaKeduaFocusGained
+        txtAngkaKedua.setText("");
+    }//GEN-LAST:event_txtAngkaKeduaFocusGained
 
     /**
      * @param args the command line arguments
