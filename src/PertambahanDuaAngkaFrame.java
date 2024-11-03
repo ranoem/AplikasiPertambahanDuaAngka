@@ -1,4 +1,6 @@
 import javax.swing.JOptionPane;
+import java.awt.event.KeyAdapter; 
+import java.awt.event.KeyEvent;
 
 public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
 
@@ -7,9 +9,26 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
      */
     public PertambahanDuaAngkaFrame() {
         initComponents();
+        setupListeners();
     }
     
-    
+    private void setupListeners() {
+        //Key adapter untuk membatasi hanya numeric yang dapat diinput
+        KeyAdapter hanyaAngka = new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char karakter = e.getKeyChar();
+                if (!Character.isDigit(karakter) && karakter != KeyEvent.VK_BACK_SPACE) {
+                    //JOption untuk memberikan peringatan eror input
+                    JOptionPane.showMessageDialog(null, "Input harus berupa angka!", "Error", JOptionPane.ERROR_MESSAGE);
+                    e.consume();
+                }
+            }
+        };
+        txtAngkaPertama.addKeyListener(hanyaAngka);
+        txtAngkaKedua.addKeyListener(hanyaAngka);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
