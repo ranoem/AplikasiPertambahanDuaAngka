@@ -1,7 +1,7 @@
 
 # Aplikasi Pertambahan Dua Angka
 
-Aplikasi ini dapat digunakan untuk melakukan operasi pertambahan dua buah angka.
+Aplikasi Pertambahan Dua Angka adalah sebuah aplikasi sederhana yang dirancang untuk melakukan operasi penjumlahan antara dua bilangan. Pengguna dapat memasukkan dua angka ke dalam aplikasi, dan aplikasi akan menampilkan hasil penjumlahan secara otomatis
 
 ## Fitur
 
